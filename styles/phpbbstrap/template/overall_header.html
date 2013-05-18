@@ -90,12 +90,12 @@
 <!-- load BootStrap JavaScript from CDN -->
 <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
 
-<link href="{T_THEME_PATH}/print.css" rel="stylesheet" type="text/css" media="print" title="printonly" />
+<!-- <link href="{T_THEME_PATH}/print.css" rel="stylesheet" type="text/css" media="print" title="printonly" /> -->
 <link href="{T_STYLESHEET_LINK}" rel="stylesheet" type="text/css" media="screen, projection" />
 
-<link href="{T_THEME_PATH}/normal.css" rel="stylesheet" type="text/css" title="A" />
-<link href="{T_THEME_PATH}/medium.css" rel="alternate stylesheet" type="text/css" title="A+" />
-<link href="{T_THEME_PATH}/large.css" rel="alternate stylesheet" type="text/css" title="A++" />
+<!-- <link href="{T_THEME_PATH}/normal.css" rel="stylesheet" type="text/css" title="A" /> -->
+<!-- <link href="{T_THEME_PATH}/medium.css" rel="alternate stylesheet" type="text/css" title="A+" /> -->
+<!-- <link href="{T_THEME_PATH}/large.css" rel="alternate stylesheet" type="text/css" title="A++" /> -->
 
 <!-- IF S_CONTENT_DIRECTION eq 'rtl' -->
 	<link href="{T_THEME_PATH}/bidi.css" rel="stylesheet" type="text/css" media="screen, projection" />
@@ -111,18 +111,18 @@
 	-->
 	<div id="wrap">
 		<a id="top" name="top" accesskey="t"></a>
-		<header>
+		<header id="pageheader">
 			<div class="container-fluid">
 				<div class="row-fluid">
 					<!-- IF S_DISPLAY_SEARCH and not S_IN_SEARCH -->
-						<div id="search-box" class="pull-right">
+						<div id="searchbox" class="pull-right span2">
 							<form action="{U_SEARCH}" method="get" id="search" class="form form-search">
-							<div class="input-append">
-								<input name="keywords" id="keywords" type="text" maxlength="128" title="{L_SEARCH_KEYWORDS}" class="search-query" value="<!-- IF SEARCH_WORDS-->{SEARCH_WORDS}<!-- ENDIF -->" placeholder="{LA_SEARCH_MINI}">
-								<button class="btn btn-primary" type="submit" title="{L_SEARCH}"><i class="icon-search"></i></button>
-							</div>
+							<input name="keywords" id="keywords" type="text" maxlength="128" title="{L_SEARCH_KEYWORDS}" class="input-medium search-query" value="<!-- IF SEARCH_WORDS-->{SEARCH_WORDS}<!-- ENDIF -->" placeholder="{LA_SEARCH_MINI}">
+							<p class="text-center">
+								<small><a href="{U_SEARCH}" title="{L_SEARCH_ADV_EXPLAIN}">{L_SEARCH_ADV}</a></small>
+							</p>
+							{S_SEARCH_HIDDEN_FIELDS}
 							</form>
-							<a href="{U_SEARCH}" title="{L_SEARCH_ADV_EXPLAIN}">{L_SEARCH_ADV}</a> {S_SEARCH_HIDDEN_FIELDS}
 						</div>
 					<!-- ENDIF -->
 
@@ -134,9 +134,31 @@
 				</div>
 			</div>
 		</header>
+
+		<!-- Main Navigation -->
+		<div class="navbar navbar-static-top navbar-inverse">
+			<div class="navbar-inner">
+				<ul class="nav">
+					<li><a href="{U_INDEX}" accesskey="h"><i class="icon-home"></i> {L_INDEX}</a></li>
+					
+					<!-- IF not S_IS_BOT -->
+					<!-- IF S_DISPLAY_MEMBERLIST --><li><a href="{U_MEMBERLIST}" title="{L_MEMBERLIST_EXPLAIN}">{L_MEMBERLIST}</a></li><!-- ENDIF -->
+					<li><a href="{U_FAQ}" title="{L_FAQ_EXPLAIN}">{L_FAQ}</a></li>
+					<!-- ENDIF -->
+				</ul>
+
+				<!-- IF not S_IS_BOT -->
+				<ul class="nav pull-right">
+					
+					<!-- IF not S_USER_LOGGED_IN and S_REGISTER_ENABLED and not (S_SHOW_COPPA or S_REGISTRATION) --><li><a href="{U_REGISTER}">{L_REGISTER}</a></li><!-- ENDIF -->
+					<li><a href="{U_LOGIN_LOGOUT}" title="{L_LOGIN_LOGOUT}" accesskey="x">{L_LOGIN_LOGOUT}</a></li>
+				</ul>
+				<!-- ENDIF -->
+			</div>
+		</div>
 	</div>
 
-<div id="wrapx">
+<div id="wrapx" class="hide">
 	
 	<div id="page-header">
 		<div class="headerbar">
@@ -155,9 +177,9 @@
 
 		<div class="navbar">
 			<div class="inner"><span class="corners-top"><span></span></span>
-
+				<!-- BEGIN navlinks --> <strong>&#8249;</strong> <a href="{navlinks.U_VIEW_FORUM}">{navlinks.FORUM_NAME}</a><!-- END navlinks -->
 			<ul class="linklist navlinks">
-				<li class="icon-home"><a href="{U_INDEX}" accesskey="h">{L_INDEX}</a> <!-- BEGIN navlinks --> <strong>&#8249;</strong> <a href="{navlinks.U_VIEW_FORUM}">{navlinks.FORUM_NAME}</a><!-- END navlinks --></li>
+				
 
 				<li class="rightside"><a href="#" onclick="fontsizeup(); return false;" onkeypress="return fontsizeup(event);" class="fontsize" title="{L_CHANGE_FONT_SIZE}">{L_CHANGE_FONT_SIZE}</a></li>
 
@@ -183,12 +205,11 @@
 			<!-- ENDIF -->
 
 			<ul class="linklist rightside">
-				<li class="icon-faq"><a href="{U_FAQ}" title="{L_FAQ_EXPLAIN}">{L_FAQ}</a></li>
-				<!-- IF not S_IS_BOT -->
-					<!-- IF S_DISPLAY_MEMBERLIST --><li class="icon-members"><a href="{U_MEMBERLIST}" title="{L_MEMBERLIST_EXPLAIN}">{L_MEMBERLIST}</a></li><!-- ENDIF -->
-					<!-- IF not S_USER_LOGGED_IN and S_REGISTER_ENABLED and not (S_SHOW_COPPA or S_REGISTRATION) --><li class="icon-register"><a href="{U_REGISTER}">{L_REGISTER}</a></li><!-- ENDIF -->
-					<li class="icon-logout"><a href="{U_LOGIN_LOGOUT}" title="{L_LOGIN_LOGOUT}" accesskey="x">{L_LOGIN_LOGOUT}</a></li>
-				<!-- ENDIF -->
+				
+				
+					
+					
+				
 			</ul>
 
 			<span class="corners-bottom"><span></span></span></div>

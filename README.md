@@ -11,7 +11,7 @@ Modifications Required on core PHPBB Files
 ==========================================
 
 **index.php**
-_around line 133:_
+_(around line 133) add:_
 
 	'CURRENT_USERNAME'	=> $user->data['username'],
 

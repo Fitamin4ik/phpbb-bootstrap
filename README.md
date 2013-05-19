@@ -14,6 +14,8 @@ Usage Instructions
 1. Install phpBB 3.0.11 [http://www.phpbb.com].
 2. Copy `/styles/phpbbstrap` into your phpBB's `/styles/` directory.
 3. Modify files below to make sure all the required extra support variables are present (or if you are using a stock setup without any MODs, you can just overwrite them with the ones included here!).
+4. Change your phpBB's style to 'phpBBStrap'
+5. Clear your board's cache
 
 Modifications Required on core PHPBB Files
 ------------------------------------------

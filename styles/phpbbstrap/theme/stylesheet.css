@@ -75,3 +75,84 @@ a:active {
 .quicklogin .checkbox {
   font-size: 12px;
 }
+.forumrow-container {
+  background: rgba(0, 0, 0, 0.03);
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+  padding: 5px 20px;
+  overflow: hidden;
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+.forumrow-container .forumrow {
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);
+  position: relative;
+}
+.forumrow-container .forumrow.category {
+  line-height: 30px;
+}
+.forumrow-container .forumrow.category .category-title {
+  font-weight: 700;
+}
+.forumrow-container .forumrow.category .text-center {
+  color: #888;
+}
+.forumrow-container .forumrow + .forumrow {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+.forumrow-container .forumrow a.feed-icon-forum {
+  text-decoration: none;
+  color: #f89406;
+  font-size: 20px;
+  padding-top: 5px;
+}
+.forumrow-container .forumrow .ministat {
+  margin: 5px 0;
+  background: #222;
+  color: #fff;
+  border-radius: 4px;
+  padding: 8px;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 1;
+  text-shadow: none;
+  width: 100%;
+}
+.forumrow-container .forumrow .ministat dfn {
+  display: block;
+  font-size: 11px;
+  font-weight: normal;
+  text-transform: uppercase;
+  margin-top: 4px;
+  font-style: normal;
+}
+.forumrow-container .forumrow .forum-icon {
+  width: 40px;
+  height: 40px;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  background-clip: padding-box;
+  position: absolute;
+  top: 13px;
+  left: 0;
+}
+.forumrow-container .forumrow .forum-title {
+  padding-left: 50px;
+}
+.forumrow-container .forumrow .forum-title h4 {
+  margin-bottom: 3px;
+}
+.forumrow-container .forumrow .forum-title .desc {
+  margin-bottom: 4px;
+  color: #888;
+}
+.forumrow-container .forumrow .lastpost {
+  padding: 5px;
+  margin: 0;
+}
+.forumrow-container + .forumrow-container {
+  margin-top: 15px;
+}

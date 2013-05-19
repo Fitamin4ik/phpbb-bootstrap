@@ -4,9 +4,13 @@ body {
 
 #pageheader {
 	padding: 20px;
-	background: #555;
+	background: #555 url('./img/fabric_plaid_@2X.png') repeat 0 0;
+	background-size: 200px 200px;
+	color: #fff;
+	text-shadow: 0px -1px 1px rgba(0,0,0,0.4);
 
 	#searchbox {
+		margin-top: 20px;
 		.search-query {
 			opacity: 0.8;
 
@@ -20,6 +24,14 @@ body {
 			&:hover {
 				color: #fff;
 			}
+		}
+	}
+
+	p {
+		margin: 0;
+
+		&.logo-description {
+			font-size: 12px;
 		}
 	}
 }

@@ -78,17 +78,21 @@
 
 <script type="text/javascript" src="{T_SUPER_TEMPLATE_PATH}/forum_fn.js"></script>
 
-<!-- load BootStrap from CDN (Without icons, as we're gonna use FontAwesome for this) -->
+<link href="{T_SUPER_TEMPLATE_PATH}/libs/css/bootstrap.min.css" rel="stylesheet">
+<link href="{T_SUPER_TEMPLATE_PATH}/libs/css/font-awesome.min.css" rel="stylesheet">
+<script src="{T_SUPER_TEMPLATE_PATH}/libs/js/jquery-1.9.1.min.js"></script>
+<script src="{T_SUPER_TEMPLATE_PATH}/libs/js/bootstrap.min.js"></script>
+<!--[if IE 7]>
+  <link href="{T_SUPER_TEMPLATE_PATH}/libs/css/font-awesome-ie7.min.css" rel="stylesheet">
+<![endif]-->
+
+<!-- uncomment below if you want to use a CDN-hosted script (speed boost) -->
+<!--
 <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
-
-<!-- load FontAwesome from CDN -->
 <link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.min.css" rel="stylesheet">
-
-<!-- load jQuery from CDN -->
 <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-
-<!-- load BootStrap JavaScript from CDN -->
 <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+-->
 
 <!-- <link href="{T_THEME_PATH}/print.css" rel="stylesheet" type="text/css" media="print" title="printonly" /> -->
 <link href="{T_STYLESHEET_LINK}" rel="stylesheet" type="text/css" media="screen, projection" />
@@ -123,14 +127,16 @@
 							</p>
 							{S_SEARCH_HIDDEN_FIELDS}
 							</form>
+
+							<p class="text-right">
+								<small><a href="#start_here">{L_SKIP} &darr;</a></small>
+							</p>
 						</div>
 					<!-- ENDIF -->
 
 
-					<a href="{U_INDEX}" title="{L_INDEX}" id="logo">{SITE_LOGO_IMG}</a>
-					<h1>{SITENAME}</h1>
-					<p>{SITE_DESCRIPTION}</p>
-					<p class="skiplink"><a href="#start_here">{L_SKIP}</a></p>
+					<a href="{U_INDEX}" title="{SITENAME}" id="logo">{SITE_LOGO_IMG}</a>
+					<p class="logo-description">{SITE_DESCRIPTION}</p>
 				</div>
 			</div>
 		</header>
@@ -140,7 +146,7 @@
 			<div class="navbar-inner">
 				<ul class="nav">
 					<li><a href="{U_INDEX}" accesskey="h"><i class="icon-home"></i> {L_INDEX}</a></li>
-					
+
 					<!-- IF not S_IS_BOT -->
 					<!-- IF S_DISPLAY_MEMBERLIST --><li><a href="{U_MEMBERLIST}" title="{L_MEMBERLIST_EXPLAIN}">{L_MEMBERLIST}</a></li><!-- ENDIF -->
 					<li><a href="{U_FAQ}" title="{L_FAQ_EXPLAIN}">{L_FAQ}</a></li>

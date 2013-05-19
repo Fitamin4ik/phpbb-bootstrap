@@ -8,7 +8,7 @@ Note: This project is not release-ready yet. It's still in development!
 
 
 Modifications Required on core PHPBB Files
-==========================================
+------------------------------------------
 
 **index.php**
 _(around line 133) add:_

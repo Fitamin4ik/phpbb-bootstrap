@@ -1,16 +1,38 @@
 <!-- INCLUDE overall_header.html -->
 
-<p class="{S_CONTENT_FLOW_END}<!-- IF S_USER_LOGGED_IN --> rightside<!-- ENDIF -->"><!-- IF S_USER_LOGGED_IN -->{LAST_VISIT_DATE}<!-- ELSE -->{CURRENT_TIME}<!-- ENDIF --></p>
-<!-- IF U_MCP --><p>{CURRENT_TIME} <br />[&nbsp;<a href="{U_MCP}">{L_MCP}</a>&nbsp;]</p><!-- ELSEIF S_USER_LOGGED_IN --><p>{CURRENT_TIME}</p><!-- ENDIF -->
+<div class="row-fluid">
+	<div class="clearfix">
+		<ul class="inline pull-right lastvisit">
+			<li><small><i class="icon-time"></i> <!-- IF S_USER_LOGGED_IN -->{LAST_VISIT_DATE}<!-- ELSE -->{CURRENT_TIME}<!-- ENDIF --></small></li>
+			<li><small><i class="icon-time"></i> <!-- IF U_MCP -->{CURRENT_TIME}<!-- ELSEIF S_USER_LOGGED_IN -->{CURRENT_TIME}<!-- ENDIF --></small></li>
+		</ul>
+	</div>
 
-<!-- IF S_DISPLAY_SEARCH or (S_USER_LOGGED_IN and not S_IS_BOT) -->
-<ul class="linklist">
-	<!-- IF S_DISPLAY_SEARCH -->
-		<li><a href="{U_SEARCH_UNANSWERED}">{L_SEARCH_UNANSWERED}</a><!-- IF S_LOAD_UNREADS --> &bull; <a href="{U_SEARCH_UNREAD}">{L_SEARCH_UNREAD}</a><!-- ENDIF --><!-- IF S_USER_LOGGED_IN --> &bull; <a href="{U_SEARCH_NEW}">{L_SEARCH_NEW}</a><!-- ENDIF --> &bull; <a href="{U_SEARCH_ACTIVE_TOPICS}">{L_SEARCH_ACTIVE_TOPICS}</a></li>
-	<!-- ENDIF -->
-	<!-- IF not S_IS_BOT and U_MARK_FORUMS --><li class="rightside"><a href="{U_MARK_FORUMS}" accesskey="m">{L_MARK_FORUMS_READ}</a></li><!-- ENDIF -->
-</ul>
-<!-- ENDIF -->
+	<div class="btn-toolbar pull-left">
+		<div class="btn-group">
+			<!-- IF U_MCP --><a href="{U_MCP}" class="btn btn-small"><i class="icon-cogs"></i> {L_MCP}</a><!-- ENDIF -->
+		</div>
+	</div>
+
+	<div class="btn-toolbar pull-right">
+		<!-- IF S_DISPLAY_SEARCH or (S_USER_LOGGED_IN and not S_IS_BOT) -->
+		<div class="btn-group">
+			<!-- IF S_DISPLAY_SEARCH -->
+				<a class="btn btn-small" href="{U_SEARCH_UNANSWERED}">{L_SEARCH_UNANSWERED}</a>
+				<!-- IF S_LOAD_UNREADS --><a class="btn btn-small" href="{U_SEARCH_UNREAD}">{L_SEARCH_UNREAD}</a><!-- ENDIF -->
+				<!-- IF S_USER_LOGGED_IN --><a class="btn btn-small" href="{U_SEARCH_NEW}">{L_SEARCH_NEW}</a><!-- ENDIF -->
+				<a class="btn btn-small" href="{U_SEARCH_ACTIVE_TOPICS}">{L_SEARCH_ACTIVE_TOPICS}</a></li>
+			<!-- ENDIF -->
+		</div>
+		<!-- ENDIF -->
+
+		<!-- IF not S_IS_BOT and U_MARK_FORUMS -->
+		<div class="btn-group">
+			<a class="btn btn-small" href="{U_MARK_FORUMS}" accesskey="m"><i class="icon-ok"></i> {L_MARK_FORUMS_READ}</a>
+		</div>
+		<!-- ENDIF -->
+	</div>
+</div>
 
 <!-- INCLUDE forumlist_body.html -->
 
@@ -29,6 +51,7 @@
 	</form>
 <!-- ENDIF -->
 
+<div class="well">
 <!-- IF S_DISPLAY_ONLINE_LIST -->
 	<!-- IF U_VIEWONLINE --><h3><a href="{U_VIEWONLINE}">{L_WHO_IS_ONLINE}</a></h3><!-- ELSE --><h3>{L_WHO_IS_ONLINE}</h3><!-- ENDIF -->
 	<p>{TOTAL_USERS_ONLINE} ({L_ONLINE_EXPLAIN})<br />{RECORD_USERS}<br /> <br />{LOGGED_IN_USER_LIST}
@@ -44,5 +67,5 @@
 	<h3>{L_STATISTICS}</h3>
 	<p>{TOTAL_POSTS} &bull; {TOTAL_TOPICS} &bull; {TOTAL_USERS} &bull; {NEWEST_USER}</p>
 <!-- ENDIF -->
-
+</div>
 <!-- INCLUDE overall_footer.html -->

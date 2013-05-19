@@ -29,3 +29,7 @@ body {
 #pageheader p.logo-description {
   font-size: 12px;
 }
+.lastvisit {
+  margin: 0;
+  color: #888;
+}

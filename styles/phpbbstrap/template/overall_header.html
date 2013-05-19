@@ -178,6 +178,10 @@
 								<!-- IF S_DISPLAY_SEARCH -->
 								<li><a href="{U_SEARCH_SELF}"><i class="icon-comment"></i> {L_SEARCH_SELF}</a></li>
 								<!-- ENDIF -->
+								<!-- IF U_ACP -->
+								<li class="divider"></li>
+								<li><a href="{U_ACP}"><i class="icon-cogs"></i> {L_ACP}</a></li>
+								<!-- ENDIF -->
 								<li class="divider"></li>
 								<li><a href="{U_LOGIN_LOGOUT}" accesskey="x"><i class="icon-unlock-alt"></i> {L_LOGOUT}</a></li>
 							</ul>
@@ -187,18 +191,11 @@
 				<!-- ENDIF -->
 			</div>
 		</div>
-	</div>
-
-<div id="wrapx" class="hide">
 	
+
 	<div id="page-header">
 		<div class="navbar">
-				<!-- BEGIN navlinks --> <strong>&#8249;</strong> <a href="{navlinks.U_VIEW_FORUM}">{navlinks.FORUM_NAME}</a><!-- END navlinks -->
 			<ul class="linklist navlinks">
-				
-
-				<li class="rightside"><a href="#" onclick="fontsizeup(); return false;" onkeypress="return fontsizeup(event);" class="fontsize" title="{L_CHANGE_FONT_SIZE}">{L_CHANGE_FONT_SIZE}</a></li>
-
 				<!-- IF U_EMAIL_TOPIC --><li class="rightside"><a href="{U_EMAIL_TOPIC}" title="{L_EMAIL_TOPIC}" class="sendemail">{L_EMAIL_TOPIC}</a></li><!-- ENDIF -->
 				<!-- IF U_EMAIL_PM --><li class="rightside"><a href="{U_EMAIL_PM}" title="{L_EMAIL_PM}" class="sendemail">{L_EMAIL_PM}</a></li><!-- ENDIF -->
 				<!-- IF U_PRINT_TOPIC --><li class="rightside"><a href="{U_PRINT_TOPIC}" title="{L_PRINT_TOPIC}" accesskey="p" class="print">{L_PRINT_TOPIC}</a></li><!-- ENDIF -->
@@ -209,11 +206,12 @@
 	</div>
 
 	<a name="start_here"></a>
-	<div id="page-body">
+	<div id="page-body" class="container-fluid">
 		<!-- IF S_BOARD_DISABLED and S_USER_LOGGED_IN and (U_MCP or U_ACP) -->
-		<div id="information" class="rules">
-			
-				<strong>{L_INFORMATION}:</strong> {L_BOARD_DISABLED}
-			
-		</div>
+		<div class="alert alert-info"><strong>{L_INFORMATION}:</strong> {L_BOARD_DISABLED}</div>
 		<!-- ENDIF -->
+
+		<ul class="breadcrumb">
+			<li><a href="{U_INDEX}" accesskey="h"><i class="icon-home"></i> {L_INDEX}</a> <span class="divider"><i class="icon-caret-right"></i></span></li>
+			<!-- BEGIN navlinks --><li><a href="{navlinks.U_VIEW_FORUM}">{navlinks.FORUM_NAME}</a> <span class="divider"><i class="icon-caret-right"></i></span></li><!-- END navlinks -->
+		</ul>

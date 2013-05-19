@@ -82,6 +82,7 @@
 <link href="{T_SUPER_TEMPLATE_PATH}/libs/css/font-awesome.min.css" rel="stylesheet">
 <script src="{T_SUPER_TEMPLATE_PATH}/libs/js/jquery-1.9.1.min.js"></script>
 <script src="{T_SUPER_TEMPLATE_PATH}/libs/js/bootstrap.min.js"></script>
+<script src="{T_SUPER_TEMPLATE_PATH}/libs/js/script.js"></script>
 <!--[if IE 7]>
   <link href="{T_SUPER_TEMPLATE_PATH}/libs/css/font-awesome-ie7.min.css" rel="stylesheet">
 <![endif]-->
@@ -160,7 +161,7 @@
 					<li><a href="{U_REGISTER}"><i class="icon-pencil"></i> {L_REGISTER}</a></li>
 					<!-- ENDIF -->
 					<!-- IF not S_USER_LOGGED_IN -->
-					<li><a href="{U_LOGIN_LOGOUT}" title="{L_LOGIN_LOGOUT}" accesskey="x"><i class="icon-lock"></i> {L_LOGIN}</a></li>
+					<li><a id="login-trigger" href="{U_LOGIN_LOGOUT}" title="{L_LOGIN_LOGOUT}" accesskey="x"><i class="icon-lock"></i> {L_LOGIN} <i class="icon-caret-down"></i></a></li>
 					<!-- ENDIF -->
 					<!-- IF S_USER_LOGGED_IN -->
 						<!-- IF U_RESTORE_PERMISSIONS -->
@@ -191,6 +192,22 @@
 				<!-- ENDIF -->
 			</div>
 		</div>
+		<!-- end main nav -->
+
+		<!-- IF not S_USER_LOGGED_IN and not S_IS_BOT -->
+		<form method="post" action="{S_LOGIN_ACTION}" class="form form-vertical pull-right span3 quicklogin" id="quicklogin-form">
+			<label for="username">{L_USERNAME}:</label>
+			<input type="text" name="username" id="username" size="10" class="input-block-level" title="{L_USERNAME}" />
+			
+			<label for="password">{L_PASSWORD}:</label>
+			<input type="password" name="password" id="password" size="10" class="input-block-level" title="{L_PASSWORD}" />
+			<!-- IF S_AUTOLOGIN_ENABLED -->
+			<label for="autologin" class="checkbox"><input type="checkbox" name="autologin" id="autologin" >{L_LOG_ME_IN}</label>
+			<!-- ENDIF -->
+			<button type="submit" name="login" class="btn btn-block btn-primary"><i class="icon-lock"></i> {L_LOGIN}</button>
+			{S_LOGIN_REDIRECT}
+		</form>
+		<!-- ENDIF -->
 	
 
 	<div id="page-header">
@@ -212,6 +229,6 @@
 		<!-- ENDIF -->
 
 		<ul class="breadcrumb">
-			<li><a href="{U_INDEX}" accesskey="h"><i class="icon-home"></i> {L_INDEX}</a> <span class="divider"><i class="icon-caret-right"></i></span></li>
-			<!-- BEGIN navlinks --><li><a href="{navlinks.U_VIEW_FORUM}">{navlinks.FORUM_NAME}</a> <span class="divider"><i class="icon-caret-right"></i></span></li><!-- END navlinks -->
+			<li><a href="{U_INDEX}" accesskey="h"><i class="icon-home"></i> {L_INDEX}</a></li>
+			<!-- BEGIN navlinks --><li><span class="divider"><i class="icon-caret-right"></i></span> <a href="{navlinks.U_VIEW_FORUM}">{navlinks.FORUM_NAME}</a></li><!-- END navlinks -->
 		</ul>

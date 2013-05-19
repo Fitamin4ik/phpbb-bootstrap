@@ -1,3 +1,6 @@
+body {
+  font-size: 13px;
+}
 #pageheader {
   padding: 20px;
   background: #555555 url('./img/fabric_plaid_@2X.png') repeat 0 0;

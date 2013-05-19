@@ -156,8 +156,30 @@
 				<!-- IF not S_IS_BOT -->
 				<ul class="nav pull-right">
 					
-					<!-- IF not S_USER_LOGGED_IN and S_REGISTER_ENABLED and not (S_SHOW_COPPA or S_REGISTRATION) --><li><a href="{U_REGISTER}">{L_REGISTER}</a></li><!-- ENDIF -->
-					<li><a href="{U_LOGIN_LOGOUT}" title="{L_LOGIN_LOGOUT}" accesskey="x">{L_LOGIN_LOGOUT}</a></li>
+					<!-- IF not S_USER_LOGGED_IN and S_REGISTER_ENABLED and not (S_SHOW_COPPA or S_REGISTRATION) -->
+					<li><a href="{U_REGISTER}"><i class="icon-pencil"></i> {L_REGISTER}</a></li>
+					<!-- ENDIF -->
+					<!-- IF not S_USER_LOGGED_IN -->
+					<li><a href="{U_LOGIN_LOGOUT}" title="{L_LOGIN_LOGOUT}" accesskey="x"><i class="icon-lock"></i> {L_LOGIN}</a></li>
+					<!-- ENDIF -->
+					<!-- IF S_USER_LOGGED_IN -->
+					<!-- IF S_DISPLAY_PM -->
+					<li><a href="{U_PRIVATEMSGS}"><i class="icon-envelope-alt"></i> {PRIVATE_MESSAGE_INFO}</a></li>
+					<!-- ENDIF -->
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							<i class="icon-user"></i> {CURRENT_USERNAME} <i class="icon-caret-down"></i>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="{U_PROFILE}" title="{L_PROFILE}" accesskey="e"><i class="icon-cog"></i> {L_PROFILE}</a></li>
+							<!-- IF S_DISPLAY_SEARCH -->
+							<li><a href="{U_SEARCH_SELF}"><i class="icon-comment"></i> {L_SEARCH_SELF}</a></li>
+							<!-- ENDIF -->
+							<li class="divider"></li>
+							<li><a href="{U_LOGIN_LOGOUT}" accesskey="x"><i class="icon-unlock-alt"></i> {L_LOGOUT}</a></li>
+						</ul>
+					</li>
+					<!-- ENDIF -->
 				</ul>
 				<!-- ENDIF -->
 			</div>
@@ -198,11 +220,9 @@
 			<!-- IF not S_IS_BOT and S_USER_LOGGED_IN -->
 			<ul class="linklist leftside">
 				<li class="icon-ucp">
-					<a href="{U_PROFILE}" title="{L_PROFILE}" accesskey="e">{L_PROFILE}</a>
-						<!-- IF S_DISPLAY_PM --> (<a href="{U_PRIVATEMSGS}">{PRIVATE_MESSAGE_INFO}</a>)<!-- ENDIF -->
-					<!-- IF S_DISPLAY_SEARCH --> &bull;
-					<a href="{U_SEARCH_SELF}">{L_SEARCH_SELF}</a>
-					<!-- ENDIF -->
+					
+						
+					
 					<!-- IF U_RESTORE_PERMISSIONS --> &bull;
 					<a href="{U_RESTORE_PERMISSIONS}">{L_RESTORE_PERMISSIONS}</a>
 					<!-- ENDIF -->
